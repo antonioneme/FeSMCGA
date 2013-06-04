@@ -437,16 +437,11 @@ def	vectors_in_each_class(Classes, nc, Dx):
 	return vectors_in_class
 
 """
-python FeSMCGA.py ../../../data/RNAi_breast_cancer/brough/similarity/CCL_impact.vec 6 500 2000 0.06 2 ../../../data/RNAi_breast_cancer/brough/similarity/allKinases.LAB ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.fs ../../../data/RNAi_breast_cancer/brough/similarity/brough_t.kin ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.dst ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.vdst ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1_D.fs 1
-
-python FeSMCGA.py ../../../data/RNAi_breast_cancer/brough/similarity/CCL_impact.vec 15 500 1500 0.06 2 ../../../data/RNAi_breast_cancer/brough/similarity/allKinases.LAB ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.fs ../../../data/RNAi_breast_cancer/brough/similarity/brough_t.kin ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.dst ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1.vdst ../../../data/RNAi_breast_cancer/brough/similarity/subspaces_FS/CCL_impact_mr_1_D.fs 1
-
-This program searches the attribute space in dats for a list of up to K attributes such that distance between vectors of the same class is
-minimun and distance between centroids for different classes is maximum
-As opossed to testor theory, we take into account the mutual information between the attributes and the class, and not the number of
-correct/incorrect classified vectors.
-An extensive search (brute force) is not possible as the number of permutations grows as A^K, where A is the number of attributes (dimension)
-
+This program searches the attribute space for a list (subspace) of up to K attributes such that distance between vectors of the same class is
+minimun and distance between centroids for different classes is maximum.
+An extensive search (brute force) is not possible as the number of permutations grows as A^K, where A is the number of attributes (dimension)a. Thus,
+an heuristic search is requiered. We implemented a genetic algorithm to search
+for that space
 """
 Dt = read_data(sys.argv[1])
 D = Dt[0]
